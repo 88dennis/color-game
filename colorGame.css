@@ -41,3 +41,12 @@
     .difficulty {
         background-color: gray;
     }
+    
+    button {
+        background-color: transparent;
+        border-width: 1px;
+    }
+    
+    button:focus {
+        outline: none;
+    }
