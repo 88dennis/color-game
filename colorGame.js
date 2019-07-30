@@ -28,6 +28,8 @@ easyBtn.addEventListener("click", function() {
     colorDisplay.textContent = guessThisColor;
     messageDisplay.textContent = "Start Now!"
     hardBtn.textContent = "Hard"
+    h1.style.backgroundColor = "black"
+    messageDisplay.style.backgroundColor = "transparent"
     for (let i = 0; i < boxes.length; i++) {
         if (colors[i]) {
             boxes[i].style.backgroundColor = colors[i]
@@ -48,6 +50,8 @@ hardBtn.addEventListener("click", function() {
     colorDisplay.textContent = guessThisColor;
     messageDisplay.textContent = "Start Now!"
     hardBtn.textContent = "Hard"
+    h1.style.backgroundColor = "black"
+    messageDisplay.style.backgroundColor = "transparent"
     for (i = 0; i < boxes.length; i++) {
         boxes[i].style.backgroundColor = colors[i]
         boxes[i].style.display = "block"
