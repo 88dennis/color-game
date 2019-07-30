@@ -27,6 +27,7 @@ easyBtn.addEventListener("click", function() {
     guessThisColor = getColor();
     colorDisplay.textContent = guessThisColor;
     messageDisplay.textContent = "Start Now!"
+    hardBtn.textContent = "Hard"
     for (let i = 0; i < boxes.length; i++) {
         if (colors[i]) {
             boxes[i].style.backgroundColor = colors[i]
@@ -46,6 +47,7 @@ hardBtn.addEventListener("click", function() {
     guessThisColor = getColor();
     colorDisplay.textContent = guessThisColor;
     messageDisplay.textContent = "Start Now!"
+    hardBtn.textContent = "Hard"
     for (i = 0; i < boxes.length; i++) {
         boxes[i].style.backgroundColor = colors[i]
         boxes[i].style.display = "block"
@@ -53,12 +55,16 @@ hardBtn.addEventListener("click", function() {
 })
 
 shuffleBtn.addEventListener("click", function() {
+    numBoxes = 6;
     colors = takeRandomColors(numBoxes)
     guessThisColor = getColor();
     colorDisplay.textContent = guessThisColor;
     messageDisplay.textContent = "Start Now!"
+    hardBtn.classList.add("difficulty")
+    easyBtn.classList.remove("difficulty")
     score = 0;
     scoreDisplay.textContent = score
+    hardBtn.textContent = "Hard"
     for (let i = 0; i < boxes.length; i++) {
         boxes[i].style.display = "block"
         boxes[i].style.backgroundColor = colors[i]
@@ -85,6 +91,7 @@ for (let i = 0; i < boxes.length; i++) {
             messageDisplay.style.backgroundColor = clickedColor
                 //change all colors
             h1.style.backgroundColor = clickedColor
+            hardBtn.textContent = "Click to continue playing"
             changeAllColors(clickedColor)
             console.log(clickedColor)
         } else {
