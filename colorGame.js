@@ -1,6 +1,11 @@
+//function that returns an array of colors
 let colors = takeRandomColors(6);
+
 let boxes = document.querySelectorAll(".boxes");
+
+//function that returns one random color to be guessed
 let guessThisColor = getColor();
+
 let colorDisplay = document.querySelector("#colorDisplay")
 let messageDisplay = document.querySelector("#message")
 
@@ -40,7 +45,7 @@ function getColor() {
 
 //this function limits the number of colors to be pushed in an array
 function takeRandomColors(num) {
-    let arrOfColors = []
+    let arrOfColors = [];
     for (let i = 0; i < num; i++) {
         arrOfColors.push(createRandomColors())
     }
