@@ -8,6 +8,32 @@ let guessThisColor = getColor();
 
 let colorDisplay = document.querySelector("#colorDisplay")
 let messageDisplay = document.querySelector("#message")
+let h1 = document.querySelector("h1")
+let shuffleBtn = document.querySelector("#shuffleColors")
+let easyBtn = document.querySelector("#easy")
+let hardBtn = document.querySelector("#hard")
+
+easyBtn.addEventListener("click", function() {
+    easyBtn.classList.add("difficulty")
+    hardBtn.classList.remove("difficulty")
+})
+
+hardBtn.addEventListener("click", function() {
+    hardBtn.classList.add("difficulty")
+    easyBtn.classList.remove("difficulty")
+})
+
+shuffleBtn.addEventListener("click", function() {
+    colors = takeRandomColors(6)
+    guessThisColor = getColor();
+    colorDisplay.textContent = guessThisColor;
+    messageDisplay.textContent = "Start Guessing Now"
+    for (let i = 0; i < boxes.length; i++) {
+        boxes[i].style.backgroundColor = colors[i]
+    }
+})
+
+
 
 colorDisplay.textContent = guessThisColor;
 
@@ -20,12 +46,15 @@ for (let i = 0; i < boxes.length; i++) {
         var clickedColor = this.style.backgroundColor
 
         if (clickedColor === guessThisColor) {
-            messageDisplay.textContent = "Correct"
+            messageDisplay.textContent = "Correct!"
                 //change all colors
+            h1.style.backgroundColor = clickedColor
             changeAllColors(clickedColor)
+            console.log(clickedColor)
         } else {
             this.style.backgroundColor = "black";
             messageDisplay.textContent = "Try Again"
+            console.log(clickedColor)
         }
     })
 }
@@ -57,4 +86,4 @@ function createRandomColors() {
     let g = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
     return "rgb(" + r + ", " + g + ", " + b + ")"
-}
+};;
