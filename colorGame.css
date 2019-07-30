@@ -1,20 +1,28 @@
-body {
-    background-color: black;
-}
-
-h1 {
-    color: white;
-}
-
-.boxes {
-    background-color: white;
-    width: 30%;
-    padding-bottom: 30%;
-    float: left;
-    margin: 1.66%;
-}
-
-#mainCont {
-    max-width: 600px;
-    margin: 0 auto;
-}
+    body {
+        background-color: black;
+    }
+    
+    h1 {
+        color: white;
+    }
+    
+    .boxes {
+        background-color: white;
+        width: 30%;
+        padding-bottom: 30%;
+        float: left;
+        margin: 1.66%;
+    }
+    
+    #mainCont {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .panel {
+        background-color: white;
+    }
+    
+    #message {
+        color: black;
+    }
