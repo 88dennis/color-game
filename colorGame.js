@@ -1,7 +1,6 @@
 //function that returns an array of colors
 let numBoxes = 6;
 let colors = takeRandomColors(numBoxes);
-
 let boxes = document.querySelectorAll(".boxes");
 
 // let pieColors = document.querySelectorAll(".pieBack")
@@ -15,50 +14,85 @@ let shuffleBtn = document.querySelector("#shuffleColors")
 let easyBtn = document.querySelector("#easy")
 let hardBtn = document.querySelector("#hard")
 let scoreDisplay = document.querySelector("#scoreDisplay")
+let modeBtn = document.querySelectorAll(".mode")
 
 let score = 0;
 
 messageDisplay.textContent = "Start Guessing Now"
 scoreDisplay.textContent = score
+hardBtn.classList.add("difficulty")
 
-easyBtn.addEventListener("click", function() {
-    easyBtn.classList.add("difficulty");
-    hardBtn.classList.remove("difficulty");
-    numBoxes = 3;
-    colors = takeRandomColors(numBoxes);
-    guessThisColor = mysteryColor();
-    colorDisplay.textContent = guessThisColor;
-    messageDisplay.textContent = "Start Now!"
-    hardBtn.textContent = "Hard"
-    h1.style.backgroundColor = "steelblue"
-    messageDisplay.style.backgroundColor = "transparent"
-    for (let i = 0; i < boxes.length; i++) {
-        if (colors[i]) {
-            boxes[i].style.backgroundColor = colors[i]
-            boxes[i].style.display = "block"
+for (let i = 0; i < modeBtn.length; i++) {
+    modeBtn[i].addEventListener("click", function() {
+        modeBtn[0].classList.remove("difficulty")
+        modeBtn[1].classList.remove("difficulty")
+        modeBtn[i].classList.add("difficulty")
+        if (modeBtn[i].textContent === "Easy") {
+            numBoxes = 3
         } else {
-            boxes[i].style.display = "none"
+            numBoxes = 6
         }
-    }
-    console.log(colors)
-})
+        resetMode();
+    })
+}
 
-hardBtn.addEventListener("click", function() {
-    hardBtn.classList.add("difficulty")
-    easyBtn.classList.remove("difficulty")
-    numBoxes = 6;
+function resetMode() {
     colors = takeRandomColors(numBoxes)
     guessThisColor = mysteryColor();
     colorDisplay.textContent = guessThisColor;
     messageDisplay.textContent = "Start Now!"
     hardBtn.textContent = "Hard"
+    for (let i = 0; i < boxes.length; i++) {
+        if (colors[i]) {
+            boxes[i].style.display = "block"
+            boxes[i].style.backgroundColor = colors[i]
+        } else {
+            boxes[i].style.display = "none"
+        }
+    }
+    console.log(colors, guessThisColor)
     h1.style.backgroundColor = "steelblue"
     messageDisplay.style.backgroundColor = "transparent"
-    for (i = 0; i < boxes.length; i++) {
-        boxes[i].style.backgroundColor = colors[i]
-        boxes[i].style.display = "block"
-    }
-})
+}
+
+// easyBtn.addEventListener("click", function() {
+//     easyBtn.classList.add("difficulty");
+//     hardBtn.classList.remove("difficulty");
+//     numBoxes = 3;
+//     colors = takeRandomColors(numBoxes);
+//     guessThisColor = mysteryColor();
+//     colorDisplay.textContent = guessThisColor;
+//     messageDisplay.textContent = "Start Now!"
+//     hardBtn.textContent = "Hard"
+//     h1.style.backgroundColor = "steelblue"
+//     messageDisplay.style.backgroundColor = "transparent"
+//     for (let i = 0; i < boxes.length; i++) {
+//         if (colors[i]) {
+//             boxes[i].style.backgroundColor = colors[i]
+//             boxes[i].style.display = "block"
+//         } else {
+//             boxes[i].style.display = "none"
+//         }
+//     }
+//     console.log(colors)
+// })
+
+// hardBtn.addEventListener("click", function() {
+//     hardBtn.classList.add("difficulty")
+//     easyBtn.classList.remove("difficulty")
+//     numBoxes = 6;
+//     colors = takeRandomColors(numBoxes)
+//     guessThisColor = mysteryColor();
+//     colorDisplay.textContent = guessThisColor;
+//     messageDisplay.textContent = "Start Now!"
+//     hardBtn.textContent = "Hard"
+//     h1.style.backgroundColor = "steelblue"
+//     messageDisplay.style.backgroundColor = "transparent"
+//     for (i = 0; i < boxes.length; i++) {
+//         boxes[i].style.backgroundColor = colors[i]
+//         boxes[i].style.display = "block"
+//     }
+// })
 
 shuffleBtn.addEventListener("click", function() {
     numBoxes = 6;
@@ -71,17 +105,13 @@ shuffleBtn.addEventListener("click", function() {
     score = 0;
     scoreDisplay.textContent = score
     hardBtn.textContent = "Hard"
-        // for (let i = 0; i < pieColors.length; i++) {
-        //     pieColors[i].style.backgroundColor = colors[i];
-        //     console.log(pieColors[i])
-
-    // }
     for (let i = 0; i < boxes.length; i++) {
         boxes[i].style.display = "block"
         boxes[i].style.backgroundColor = colors[i]
 
     }
     location.reload()
+    hardBtn.classList.add("difficulty")
     console.log(colors, guessThisColor)
     h1.style.backgroundColor = "steelblue"
     messageDisplay.style.backgroundColor = "transparent"
@@ -117,7 +147,6 @@ for (let i = 0; i < boxes.length; i++) {
         }
     })
 }
-
 //make a function to change all colors
 function changeAllColors(color) {
     for (let i = 0; i < boxes.length; i++) {
