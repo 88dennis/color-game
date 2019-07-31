@@ -65,6 +65,25 @@
         outline: none;
     }
     
+    #boxSpan {
+        border-style: solid;
+        border-width: 1px;
+        height: 80%;
+        border-color: white;
+        width: 40px;
+        color: white;
+        text-align: center;
+        margin-left: 10px;
+        border-radius: 10px;
+    }
+    
+    .messageWrap {
+        text-align: center;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+    }
+    
     button:focus {
         outline: none;
     }

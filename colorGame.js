@@ -1,12 +1,10 @@
 //function that returns an array of colors
 let numBoxes = 6;
+let score = 0;
 let colors = takeRandomColors(numBoxes);
-let boxes = document.querySelectorAll(".boxes");
-
-// let pieColors = document.querySelectorAll(".pieBack")
-//function that returns one random color to be guessed
 let guessThisColor = mysteryColor();
-
+let boxes = document.querySelectorAll(".boxes");
+//function that returns one random color to be guessed
 let colorDisplay = document.querySelector("#colorDisplay")
 let messageDisplay = document.querySelector("#message")
 let h1 = document.querySelector("#hContainers")
@@ -15,8 +13,7 @@ let easyBtn = document.querySelector("#easy")
 let hardBtn = document.querySelector("#hard")
 let scoreDisplay = document.querySelector("#scoreDisplay")
 let modeBtn = document.querySelectorAll(".mode")
-
-let score = 0;
+let boxSpan = document.querySelector("#boxSpan")
 
 messageDisplay.textContent = "Start Guessing Now"
 scoreDisplay.textContent = score
@@ -52,7 +49,7 @@ function resetMode() {
     }
     console.log(colors, guessThisColor)
     h1.style.backgroundColor = "steelblue"
-    messageDisplay.style.backgroundColor = "transparent"
+    boxSpan.style.backgroundColor = "transparent"
 }
 
 // easyBtn.addEventListener("click", function() {
@@ -114,7 +111,7 @@ shuffleBtn.addEventListener("click", function() {
     hardBtn.classList.add("difficulty")
     console.log(colors, guessThisColor)
     h1.style.backgroundColor = "steelblue"
-    messageDisplay.style.backgroundColor = "transparent"
+    boxSpan.style.backgroundColor = "transparent"
 })
 
 colorDisplay.textContent = guessThisColor;
@@ -133,7 +130,7 @@ for (let i = 0; i < boxes.length; i++) {
             messageDisplay.textContent = "Correct!"
             score = score + 1
             scoreDisplay.textContent = score
-            messageDisplay.style.backgroundColor = clickedColor
+            boxSpan.style.backgroundColor = clickedColor
                 //change all colors
             h1.style.backgroundColor = clickedColor
             hardBtn.textContent = "Click to continue playing"
@@ -142,7 +139,7 @@ for (let i = 0; i < boxes.length; i++) {
         } else {
             this.style.backgroundColor = "black";
             messageDisplay.textContent = "Try Again, you picked " + clickedColor
-            messageDisplay.style.backgroundColor = clickedColor
+            boxSpan.style.backgroundColor = clickedColor
             console.log(clickedColor)
         }
     })
