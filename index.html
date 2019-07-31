@@ -11,18 +11,47 @@
 
 <body>
     <div id="hContainers">
-        <h1>Color Game</h1>
+
+        <div>
+            <div class="pieContainer">
+                <div class="pieBackground"></div>
+                <div id="pSlice1" class="pieBack">
+                    <div class="pie"></div>
+                </div>
+                <div id="pSlice2" class="pieBack">
+                    <div class="pie"></div>
+                </div>
+                <div id="pSlice3" class="pieBack">
+                    <div class="pie"></div>
+                </div>
+                <div id="pSlice4" class="pieBack">
+                    <div class="pie"></div>
+                </div>
+                <div id="pSlice5" class="pieBack">
+                    <div class="pie"></div>
+                </div>
+                <div id="pSlice6" class="pieBack">
+                    <div class="pie"></div>
+                </div>
+                <div class="circle">
+                    <div class="content"><strong>Color</strong><br><br><strong>Game</strong></div>
+                </div>
+            </div>
+        </div>
+
         <h2>Score: <span id="scoreDisplay">RGB</span></h2>
     </div>
 
     <h2>Guess this Color: <span id="colorDisplay">RGB</span></h2>
-
+    <p id="message"></p>
     <div class="panel">
         <button id="shuffleColors">Restart</button>
-        <button id="message"></button>
+
         <button id="easy">Easy</button>
         <button id="hard">Hard</button>
     </div>
+
+
 
     <div id="mainCont">
         <div class="boxes"></div>
@@ -32,6 +61,10 @@
         <div class="boxes"></div>
         <div class="boxes"></div>
     </div>
+
+
+
+
 
     <script src="colorGame.js" async defer></script>
 </body>

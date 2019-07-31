@@ -4,6 +4,7 @@ let colors = takeRandomColors(numBoxes);
 
 let boxes = document.querySelectorAll(".boxes");
 
+// let pieColors = document.querySelectorAll(".pieBack")
 //function that returns one random color to be guessed
 let guessThisColor = mysteryColor();
 
@@ -14,6 +15,7 @@ let shuffleBtn = document.querySelector("#shuffleColors")
 let easyBtn = document.querySelector("#easy")
 let hardBtn = document.querySelector("#hard")
 let scoreDisplay = document.querySelector("#scoreDisplay")
+
 let score = 0;
 
 messageDisplay.textContent = "Start Guessing Now"
@@ -28,7 +30,7 @@ easyBtn.addEventListener("click", function() {
     colorDisplay.textContent = guessThisColor;
     messageDisplay.textContent = "Start Now!"
     hardBtn.textContent = "Hard"
-    h1.style.backgroundColor = "black"
+    h1.style.backgroundColor = "steelblue"
     messageDisplay.style.backgroundColor = "transparent"
     for (let i = 0; i < boxes.length; i++) {
         if (colors[i]) {
@@ -50,7 +52,7 @@ hardBtn.addEventListener("click", function() {
     colorDisplay.textContent = guessThisColor;
     messageDisplay.textContent = "Start Now!"
     hardBtn.textContent = "Hard"
-    h1.style.backgroundColor = "black"
+    h1.style.backgroundColor = "steelblue"
     messageDisplay.style.backgroundColor = "transparent"
     for (i = 0; i < boxes.length; i++) {
         boxes[i].style.backgroundColor = colors[i]
@@ -69,17 +71,27 @@ shuffleBtn.addEventListener("click", function() {
     score = 0;
     scoreDisplay.textContent = score
     hardBtn.textContent = "Hard"
+        // for (let i = 0; i < pieColors.length; i++) {
+        //     pieColors[i].style.backgroundColor = colors[i];
+        //     console.log(pieColors[i])
+
+    // }
     for (let i = 0; i < boxes.length; i++) {
         boxes[i].style.display = "block"
         boxes[i].style.backgroundColor = colors[i]
+
     }
+    location.reload()
     console.log(colors, guessThisColor)
-    h1.style.backgroundColor = "black"
+    h1.style.backgroundColor = "steelblue"
     messageDisplay.style.backgroundColor = "transparent"
 })
 
 colorDisplay.textContent = guessThisColor;
 
+// for (let i = 0; i < pieColors.length; i++) {
+//     pieColors[i].style.backgroundColor = colors[i];
+// }
 for (let i = 0; i < boxes.length; i++) {
     //add colors to boxes
     boxes[i].style.backgroundColor = colors[i];
@@ -87,7 +99,6 @@ for (let i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener("click", function() {
         //get color of clicked box
         var clickedColor = this.style.backgroundColor
-
         if (clickedColor === guessThisColor) {
             messageDisplay.textContent = "Correct!"
             score = score + 1
