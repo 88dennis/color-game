@@ -9,7 +9,7 @@ let guessThisColor = getColor();
 
 let colorDisplay = document.querySelector("#colorDisplay")
 let messageDisplay = document.querySelector("#message")
-let h1 = document.querySelector("h1")
+let h1 = document.querySelector("#hContainers")
 let shuffleBtn = document.querySelector("#shuffleColors")
 let easyBtn = document.querySelector("#easy")
 let hardBtn = document.querySelector("#hard")
