@@ -5,7 +5,7 @@ let colors = takeRandomColors(numBoxes);
 let boxes = document.querySelectorAll(".boxes");
 
 //function that returns one random color to be guessed
-let guessThisColor = getColor();
+let guessThisColor = mysteryColor();
 
 let colorDisplay = document.querySelector("#colorDisplay")
 let messageDisplay = document.querySelector("#message")
@@ -24,7 +24,7 @@ easyBtn.addEventListener("click", function() {
     hardBtn.classList.remove("difficulty");
     numBoxes = 3;
     colors = takeRandomColors(numBoxes);
-    guessThisColor = getColor();
+    guessThisColor = mysteryColor();
     colorDisplay.textContent = guessThisColor;
     messageDisplay.textContent = "Start Now!"
     hardBtn.textContent = "Hard"
@@ -46,7 +46,7 @@ hardBtn.addEventListener("click", function() {
     easyBtn.classList.remove("difficulty")
     numBoxes = 6;
     colors = takeRandomColors(numBoxes)
-    guessThisColor = getColor();
+    guessThisColor = mysteryColor();
     colorDisplay.textContent = guessThisColor;
     messageDisplay.textContent = "Start Now!"
     hardBtn.textContent = "Hard"
@@ -61,7 +61,7 @@ hardBtn.addEventListener("click", function() {
 shuffleBtn.addEventListener("click", function() {
     numBoxes = 6;
     colors = takeRandomColors(numBoxes)
-    guessThisColor = getColor();
+    guessThisColor = mysteryColor();
     colorDisplay.textContent = guessThisColor;
     messageDisplay.textContent = "Start Now!"
     hardBtn.classList.add("difficulty")
@@ -115,7 +115,7 @@ function changeAllColors(color) {
 }
 
 //get a random color to be guessed using the length of an array and using its generated number to access the index of that array
-function getColor() {
+function mysteryColor() {
     var getRandomColor = Math.floor(Math.random() * colors.length);
     return colors[getRandomColor];
 };
